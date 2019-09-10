@@ -37,8 +37,9 @@ def solution():
     def inputBlendAnswerList():
         file = open("data/blends.txt", "r", encoding='utf-8')
         wordList = file.read().splitlines()
+
         for word in wordList:
-            word = word.strip()
+            word = word.split()[0]
             word = word.lower()
             blendAnswerList.append(word)
 
@@ -80,23 +81,34 @@ def solution():
         else:
             trieList = trie
         prefixDict = trieList.keys(prefix = pref)
-        threshold = len(pref) / 2
+        threshold = len(pref) * (0.8)
 
         prefixFlag = 0
         for word in prefixDict:
             LEDValue = localEditDistance(pref, word)
             if LEDValue >= threshold:
                 JWValue = jarowinklerSimilarity.get_jaro_distance(pref, word[:int(len(pref))], winkler = True, scaling = 0.1)
-                if JWValue > 0.8:
+                if JWValue > 0.95:
                     return True
         return False
 
     def calAccurancy():
         truePositiveAmount = 0
 
+        print(" ***********  blendlist : ")
+        print(blendList)
+        print("\n\n ")
+        print(" *********** count blendlist : ")
+        print(len(blendList))
+        print("\n\n ")
+
         for word in blendList:
             if word in blendAnswerList:
                 truePositiveAmount += 1
+
+        print(" ***********  truePositive : ")
+        print(truePositiveAmount)
+        print("\n\n ")
 
         # precision
         precision = float(truePositiveAmount) / len(blendList)
@@ -109,12 +121,13 @@ def solution():
         print(recall)
         print("\n\n")
 
+
     # input
     inputTrie()
     inputCandidate()
     inputBlendAnswerList()
 
-    # Compare
+    # append filtered candidates to blendList
     for word in candidatesList:
         prefix, reverseSuffix = splitWord(word)
         if comparePrefixNDictUsingLED(prefix, 0) and comparePrefixNDictUsingLED(reverseSuffix, 1):
@@ -122,6 +135,10 @@ def solution():
 
     calAccurancy()
 
+
+    # # test
+    # inputBlendAnswerList()
+    # print(blendAnswerList)
 
 # run
 if __name__ == "__main__":
