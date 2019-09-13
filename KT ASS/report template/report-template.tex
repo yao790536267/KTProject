@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage{colacl}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={(},close={)}}
+\sloppy
+
+
+
+\title{COMP90049 Project 1 Report: Word Blending}
+\author
+{Anonymous}
+
+
+
+\begin{document}
+\maketitle
+
+
+%\begin{abstract}
+%This is a \LaTeX\ sample for your paper.
+%You shouldn't plan to include an abstract for a paper of this length.
+%\end{abstract}
+
+\section{Introduction}
+
+The aim of this report is to implement Local Edit Distance algorithm (herein LED) and Jaro-Winkler Similarity algorithm (herein JWS) in order to detect word blends, in which the word candidates comes from a data set comprising frequent terms in Twitter data. LED algorithm calculates the approximate string match distance betweeen two strings. JWS algorithm aims to approximate the similarity between two strings. LED and JWS are used to decide whether the prefix and the suffix of a word are close enough to a word that is already in the English Dictionary. Therefore, the word can be detected as a blending word if the prefix and suffix of it both are similar closely with any word in the English Dictionary by using LED and JWS.
+
+Please don't include your name and/or student ID in the title or header; 
+your report should be anonymised for the reviewing process. Don't forget
+that you must cite the Twitter dataset \citep{Eis+10} and blend datasets
+\citep{DerKni15, DasGho17, CooSte10}.
+
+\section{Dataset}
+
+
+
+\section{Section}
+
+Text,\footnote{Footnote text} with footnotes at bottom of page.
+
+
+\subsection{Subsection}
+
+Text of the subsection with citations such as 
+\citet{Spa72}, \citet{Kay86} and \citet{MosWal64}.
+Note that the citation style is defined as Harvard,
+but you may use other (formal) citation styles if you prefer.
+
+
+ 
+\subsubsection{Subsubsection}
+
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection (see Table~\ref{table1}).
+
+\begin{table}[h]
+ \begin{center}
+\begin{tabular}{|l|l|}
+
+      \hline
+      Corpus & Features\\
+      \hline\hline
+      AAA & 1M words\\
+      BBB & spoken corpus (expensive)\\
+      CCC & 2M words\\
+        & free (to academics)\\
+      \hline
+
+\end{tabular}
+\caption{The caption of the table}\label{table1}
+ \end{center}
+\end{table}
+
+
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+Text of the subsubsection.
+
+
+\section{Section}
+
+Filling text; filling text.
+
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+Filling text; filling text.
+
+\section{Section}
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+Text. Text. More text. Text. Text.
+Text. Text. Text. Text. Text.
+
+Text. Text. Text. Text. Text.
+Text. Text. Text. Text. Text.
+
+\section{Conclusions}
+
+Concluding text.
+
+%\bibliographystyle{acl}
+\bibliography{sample}
+
+\end{document}
